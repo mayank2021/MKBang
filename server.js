@@ -22,8 +22,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json())
 
 const razorpay = new Razorpay({
-	key_id: 'rzp_test_jRh1ENNPJjyNNO',
-	key_secret: 'XuOSCs8FG5mCv5JcGxFPJV8D'
+	key_id: process.env.RAZORPAY_LIVE_KEY, 
+	key_secret: process.env.RAZORPAY_LIVE_SECRET,
 })
 
 //email configuration
@@ -40,7 +40,7 @@ app.post("/send_mail",cors(), async (req,res) => {
 	try{
         await transport.sendMail({
 			from: process.env.MAIL_FROM,
-			to:"mayanks19e@iiitt.ac.in",
+			to:"MKBangWeb@gmail.com",
 			subject:"User Details",
 			html:`
 				<div>
